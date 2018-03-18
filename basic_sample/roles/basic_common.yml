@@ -1,0 +1,23 @@
+- hosts: all
+  become_user: root
+
+  tasks:
+    - name: Say Hello on all servers
+      shell: echo "Hello from Ansible"
+    - name: install some packages for all servers
+      dnf:
+              #        update_cache=yes
+        state=latest
+        name={{item}}
+      with_items:
+      - curl
+      - htop
+      - strace
+      - screen
+    - name: create tmp file with ansible
+      file:
+        path: /tmp/ahmed
+        state: touch
+    - name: create user with ansible
+      user:
+        name: ansible
