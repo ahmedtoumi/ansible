@@ -1,3 +1,6 @@
+# Intro
+https://www.ansible.com/overview/it-automation
+
 # Install ansible on Fedora
 ```shell
 sudo dnf -y update
